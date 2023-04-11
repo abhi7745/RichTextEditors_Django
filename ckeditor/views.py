@@ -4,8 +4,9 @@ from django.shortcuts import render
 
 from . models import ckeditor_data
 
-# ckeditor5 - [Classic editor setup] - start -------------------------------------------------------------------------------------
-def classic_ckeditor_ckeditor5_direct_validation(request):
+# ckeditor5 - start -------------------------------------------------------------------------------------
+# [Classic editor setup] -start
+def classic_ckeditor5_direct_validation(request):
 
     # if request.method == 'GET':
     #     data = request.GET.get('description')
@@ -18,10 +19,10 @@ def classic_ckeditor_ckeditor5_direct_validation(request):
         ckeditor_data.objects.create(discription=data)
         print('from saved in - 1.0_classic_ckeditor_direct_validation')
 
-    return render(request, 'ckeditor/ckeditor5/1.0_classic_ckeditor_direct_validation.html')
+    return render(request, 'ckeditor/ckeditor5/1.0_classic_ckeditor5_direct_validation.html')
 
 
-def classic_ckeditor_ckeditor5_validation_using_inputbox(request):
+def classic_ckeditor5_validation_using_inputbox(request):
         
     if request.method == 'POST':
         data = request.POST.get('description')
@@ -30,7 +31,7 @@ def classic_ckeditor_ckeditor5_validation_using_inputbox(request):
         ckeditor_data.objects.create(discription=data)
         print('from saved in - 1.1_classic_ckeditor_validation_using_inputbox')
 
-    return render(request, 'ckeditor/ckeditor5/1.1_classic_ckeditor_validation_using_inputbox.html')
+    return render(request, 'ckeditor/ckeditor5/1.1_classic_ckeditor5_validation_using_inputbox.html')
 
 
 
@@ -43,6 +44,8 @@ def custom_classic_ckeditor5_direct_validation(request):
         ckeditor_data.objects.create(discription=data)
         print('from saved in - 1.3_custom_classic_ckeditor_direct_validation')
 
-    return render(request, 'ckeditor/ckeditor5/1.2_custom_classic_ckeditor_direct_validation.html')
+    return render(request, 'ckeditor/ckeditor5/1.2_custom_classic_ckeditor5_direct_validation.html')
 
-# ckeditor5 - [Classic editor setup] - end -------------------------------------------------------------------------------------
+# [Classic editor setup] - end
+
+# ckeditor5 - end -------------------------------------------------------------------------------------
