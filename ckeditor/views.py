@@ -60,6 +60,17 @@ def full_ckeditor5_direct_validation(request):
         print('from saved in - 2.0_full_ckeditor5_direct_validation')
 
     return render(request, 'ckeditor/ckeditor5/2.0_full_ckeditor5_direct_validation.html')
+
+def full_ckeditor5_validation_using_inputbox(request):
+     
+    if request.method == 'POST':
+        data = request.POST.get('description')
+        print(data, 'post')
+
+        ckeditor_data.objects.create(discription=data)
+        print('from saved in - 2.1_full_ckeditor5_validation_using_inputbox')
+
+    return render(request, 'ckeditor/ckeditor5/2.1_full_ckeditor5_validation_using_inputbox.html')
 # [super-build editor setup] - end
 
 # ckeditor5 - end -------------------------------------------------------------------------------------

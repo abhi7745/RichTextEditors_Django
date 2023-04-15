@@ -12,6 +12,7 @@ urlpatterns = [
 
     # super-build editor
     path('full_ckeditor5_direct_validation', full_ckeditor5_direct_validation, name='full_ckeditor5_direct_validation'),
+    path('full_ckeditor5_validation_using_inputbox', full_ckeditor5_validation_using_inputbox, name='full_ckeditor5_validation_using_inputbox'),
     # super-build editor
 
 ]
