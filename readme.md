@@ -3,7 +3,6 @@
 This is a Django project that includes different RichTextEditors that you can use in your Django web applications. Currently, the project includes.
 
 ## CKEditor
-
 ### CKEditor5
 
 #### - Custom ckeditor using cdn and javascript or jquery
@@ -12,3 +11,6 @@ This is a Django project that includes different RichTextEditors that you can us
 - 1.3_custom_classic_ckeditor5_direct_validation
 - 2.0_full_ckeditor5_direct_validation
 - 2.1_full_ckeditor5_validation_using_inputbox
+
+## Summernote Editor
+- 1.0_summernote_direct_validation
