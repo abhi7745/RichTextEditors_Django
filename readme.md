@@ -14,3 +14,4 @@ This is a Django project that includes different RichTextEditors that you can us
 
 ## Summernote Editor
 - 1.0_summernote_direct_validation
+- 1.1_summernote_validation_using_inputbox

@@ -12,7 +12,19 @@ def summernote_direct_validation(request):
         print(data)
 
         summernote_data.objects.create(description=data)
-        print('summernote data saved successfully')
+        print('summernote_direct_validation data saved successfully')
 
 
     return render(request, 'summernote/1.0_summernote_direct_validation.html')
+
+def summernote_validation_using_inputbox(request):
+
+    if request.method == 'POST':
+        data = request.POST.get('description')
+        print(data)
+
+        summernote_data.objects.create(description=data)
+        print('summernote_validation_using_inputbox data saved successfully')
+
+
+    return render(request, 'summernote/1.1_summernote_validation_using_inputbox.html')

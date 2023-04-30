@@ -5,4 +5,5 @@ from . views import *
 urlpatterns = [ 
 
     path('summernote_direct_validation', summernote_direct_validation, name='summernote_direct_validation'),
+    path('summernote_validation_using_inputbox', summernote_validation_using_inputbox, name='summernote_validation_using_inputbox'),
 ]
