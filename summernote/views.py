@@ -40,3 +40,15 @@ def custom_summernote_direct_validation(request):
 
 
     return render(request, 'summernote/1.2_custom_summernote_direct_validation.html')
+
+def custom_summernote_validation_using_inputbox(request):
+
+    if request.method == 'POST':
+        data = request.POST.get('description')
+        print(data)
+
+        summernote_data.objects.create(description=data)
+        print('custom_summernote_validation_using_inputbox data saved successfully')
+
+
+    return render(request, 'summernote/1.3_custom_summernote_validation_using_inputbox.html')
