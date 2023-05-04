@@ -32,5 +32,6 @@ urlpatterns = [
     path('', index, name='index'), # home url
     path('ckeditor/', include('ckeditor.urls'), name='ckeditor'), # ckeditor url
     path('summernote/', include('summernote.urls'), name='summernote'), # summernote url
+    path('quill/', include('quill.urls'), name='quill' ), # quill url
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) # for 'media' folder setting purpose

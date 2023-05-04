@@ -17,3 +17,8 @@ This is a Django project that includes different RichTextEditors that you can us
 - 1.1_summernote_validation_using_inputbox
 - 1.2_custom_summernote_direct_validation
 - 1.3_custom_summernote_validation_using_inputbox
+
+
+
+## Quill Editor
+- 1.0_quill_validation_using_inputbox
