@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- open-source - quilljs cdn link-->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div id="editor" style="height:100px">
+        </div>
+
+        <br><br><br><br>
+        <input type="text" id="description" name="description" style="width: 100%;">
+        <button type="submit">Submit</button>
+    </form>
+      
+
+
+
+
+
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+<script>
+var quill = new Quill('#editor', {
+    modules: {
+        toolbar: [
+          [{ header: [1, 2, 3, 4, 5, 6] }],
+          ['bold', 'italic', 'underline'],
+          ['image', 'code-block']
+        ]
+      },
+    theme: 'snow',
+    placeholder: 'Type your text here...',
+});
+
+var editorInput = document.querySelector('#description');
+
+// qull text change event happen then, it will trigger
+quill.on('text-change', function() {
+    var html = quill.root.innerHTML; // it return the quill source code
+    // when the quill.root.HTML is empty, then "description" set to null, otherwise set quill source code to that input field
+    editorInput.value = html === '<p><br></p>' ? '' : html;
+
+});
+</script>
+
+
+      
+
+<!-- iziToast required cdn -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+    
+        // form validation logic
+        $('form').submit(function(event) {
+            const description = $('#description').val().trim(); // textarea data
+            if (description.length === 0) {
+                event.preventDefault();
+                // alert('Description field is required.');
+
+                //  warning message
+                iziToast.warning({
+                    position: "topRight",
+                    timeout: 5000, icon: 'ico-warning', 
+                    title: "Description field is required",
+                    message: 'Try again'
+                });
+                    
+            }
+        });
+
+
+    }); //document.ready end
+
+
+</script>
+
+
+
+
+
+      
+      
+</body>
+</html>
