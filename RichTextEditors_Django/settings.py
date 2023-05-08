@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'summernote',
     'quill',
+    'wysihtml5',
 ]
 
 MIDDLEWARE = [
