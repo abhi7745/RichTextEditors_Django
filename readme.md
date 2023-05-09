@@ -27,3 +27,4 @@ This is a Django project that includes different RichTextEditors that you can us
 
 ## Wysihtml5
 - 1.0_wysihtml5_direct_validation
+- 1.1_wysihtml5_validation_using_inputbox
