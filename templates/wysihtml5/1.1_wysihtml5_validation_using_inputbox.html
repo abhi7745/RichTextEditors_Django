@@ -38,6 +38,7 @@
     {% csrf_token %}
     <label>Discription</label>
     <textarea id="description" name="description" class="form-control" placeholder="Page Content" cols="30" rows="10" style="width: 100%;"></textarea>
+    <input type="text" id="description_html" name="description_html" style="width:100%;">
     <button id="btn">Submit</button>
   </form>
 </div>
@@ -54,7 +55,22 @@
 <script>
   $(function () {
     //Add text editor
-    $("#description").wysihtml5();
+    var editor = $("#description").wysihtml5();
+
+    //Add onchange event
+    //editor.on("keyup", function () {
+      //Update hidden input value with the generated HTML
+      //$("#description_html").val(editor.data("wysihtml5").editor.getValue());
+      //$("#description_html").val(editor.val());
+      //console.log("Editor content changed:", editor.val());
+    //});
+
+    //Add click event to submit button
+    $("#btn").on("click", function () {
+      //alert("hai");
+      $("#description_html").val(editor.val());
+    });
+
   });
 </script>
 
@@ -79,7 +95,7 @@
 
       // form validation logic
       $('form').submit(function(event) {
-        const description = $('#description').val().trim(); // textarea data
+        const description = $('#description_html').val().trim(); // hidden input data
         if (description.length === 0) {
             event.preventDefault();
             // alert('Description field is required.');
