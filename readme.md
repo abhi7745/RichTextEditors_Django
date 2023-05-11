@@ -25,6 +25,6 @@ This is a Django project that includes different RichTextEditors that you can us
 - 1.1_inline_quill_validation_using_inputbox
 - 1.2_custom_quill_validation_using_inputbox
 
-## Wysihtml5
-- 1.0_wysihtml5_direct_validation
-- 1.1_wysihtml5_validation_using_inputbox
+## Bootstrap-wysihtml5
+- 1.0_bootstrap_wysihtml5_direct_validation
+- 1.1_bootstrap_wysihtml5_validation_using_inputbox

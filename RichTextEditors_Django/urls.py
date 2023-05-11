@@ -33,6 +33,6 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor.urls'), name='ckeditor'), # ckeditor url
     path('summernote/', include('summernote.urls'), name='summernote'), # summernote url
     path('quill/', include('quill.urls'), name='quill' ), # quill url
-    path('wysihtml5/', include('wysihtml5.urls'), name='wysihtml5' ), # wysihtml5 url
+    path('bootstrap_wysihtml5/', include('bootstrap_wysihtml5.urls'), name='bootstrap_wysihtml5' ), # bootstrap_wysihtml5 url
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) # for 'media' folder setting purpose

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class Wysihtml5Config(AppConfig):
+class BootstrapWysihtml5Config(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "wysihtml5"
+    name = "bootstrap_wysihtml5"
