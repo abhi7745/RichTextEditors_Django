@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'summernote',
     'quill',
     'bootstrap_wysihtml5',
+    'tinyMCE',
 ]
 
 MIDDLEWARE = [
