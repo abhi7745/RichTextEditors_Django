@@ -28,3 +28,7 @@ This is a Django project that includes different RichTextEditors that you can us
 ## Bootstrap-wysihtml5
 - 1.0_bootstrap_wysihtml5_direct_validation
 - 1.1_bootstrap_wysihtml5_validation_using_inputbox
+
+
+## tinyMCE
+- 1.0_basic_tinyMCE_direct_validation_without_api_key
