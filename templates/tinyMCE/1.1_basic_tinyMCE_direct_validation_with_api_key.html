@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+  <h1>TinyMCE Edior without api-key</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <textarea id="description" name="description"></textarea>
+        <button id="btn" type="submit">submit</button>
+    </form>
+
+    <!-- tinymce cdn -->
+    <!-- without api-key -->
+    <script src="https://cdn.tiny.cloud/1/{{api_key}}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#description',  // change this value according to your HTML
+            plugins: 'advlist link image lists'
+          });
+    </script>
+
+  <!-- jQuery cdn-->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  
+  <!-- iziToast required cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <script>
+    $(document).ready(function() {
+
+        // form validation logic
+        $('form').submit(function(event) {
+          const description = $('#description').val().trim(); // textarea data
+          if (description.length === 0) {
+              event.preventDefault();
+              // alert('Description field is required.');
+
+              //  warning message
+              iziToast.warning({
+                  position: "topRight",
+                  timeout: 5000, icon: 'ico-warning', 
+                  title: "Description field is required",
+                  message: 'Try again'
+              });
+                  
+          }
+        });// from validation ene
+
+    });// //document.ready end
+
+  </script>
+
+   
+    
+  </body>
+</html>
