@@ -29,3 +29,14 @@ def basic_tinyMCE_direct_validation_with_api_key(request):
         print('basic_tinyMCE_direct_validation_with_api_key data saved successfully')
 
     return render(request, 'tinyMCE/1.1_basic_tinyMCE_direct_validation_with_api_key.html', {'api_key': api_key})
+
+def custom_basic_tinyMCE_direct_validation_with_api_key(request):
+
+    if request.method == 'POST':
+        data = request.POST.get('description')
+        print(data)
+
+        tinyMCE_data.objects.create(description=data)
+        print('custom_basic_tinyMCE_direct_validation_with_api_key data saved successfully')
+
+    return render(request, 'tinyMCE/1.2_custom_basic_tinyMCE_direct_validation_with_api_key.html', {'api_key': api_key})
