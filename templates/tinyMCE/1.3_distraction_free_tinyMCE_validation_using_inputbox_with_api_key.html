@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- distraction-free editor syles - start -->
+    <style>
+    .demo-dfree {
+      position: relative;
+      box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.2);
+      text-align: left;
+      color: #626262;
+      font-size: 14px;
+      padding: 20px;
+    }
+    .demo-dfree *[contentEditable="true"]:hover {
+      outline: 1px solid #1976D2;
+    }
+    .demo-dfree h1 {
+      color: #1976D2;
+      font-size: 2em;
+    }
+    .demo-dfree h2 {
+      color: #1976D2;
+      font-size: 2em;
+    }
+    .demo-dfree h3 {
+      font-size: 1.5em;
+      color: #403f42;
+      color: inherit;
+    }
+    .demo-dfree h2,
+    .demo-dfree h3 {
+      margin-bottom: 0px;
+      margin-top: 0px;
+      line-height: 40px;
+    }
+    .demo-dfree ul,
+    .demo-dfree ol {
+      padding-left: 20px;
+    }
+    .demo-dfree ul {
+      list-style: disc;
+    }
+    .demo-dfree ol {
+      list-style: decimal;
+    }
+    .demo-dfree a {
+      text-decoration: underline;
+    }
+    .demo-dfree textarea {
+      display: none;
+    }
+    .demo-dfree .dfree-header {
+      font-size: 2.4em;
+      text-align: center;
+      margin: 10px;
+    }
+    .demo-dfree .dfree-body {
+      padding: 20px;
+      padding-top: 0px;
+    }
+    .demo-dfree .dfree-body p {
+      margin-bottom: 10px;
+    }
+    .demo-dfree .dfree-body blockquote {
+      margin-left: 30px;
+      padding-left: 10px;
+      margin-right: 40px;
+      font-style: italic;
+      border-left: 1px solid #696969;
+    }
+    .demo-dfree .dfree-body a {
+      text-decoration: underline;
+    }
+    .demo-dfree .dfree-body td,
+    .demo-dfree .dfree-body tr {
+      border: 1px solid #696969;
+    }
+    </style>
+    <!-- distraction-free editor syles - end -->
+  </head>
+
+  <body>
+  <h1>Distraction Free TinyMCE Edior with api-key</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <!-- <textarea id="description" name="description"></textarea> -->
+        <input type="text" id="description" name="description" style="width: 100%;">
+        <button id="btn" type="submit">submit</button>
+    </form>
+
+    <!-- tinymce cdn -->
+    <!-- without api-key -->
+    <script src="https://cdn.tiny.cloud/1/{{api_key}}/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+   
+
+
+    <div class='demo-dfree'>
+      <!-- <h2 class="dfree-header mce-content-body" contenteditable="true" style="position: relative;" spellcheck="false">
+        The latest and greatest from TinyMCE
+      </h2> -->
+      <br/>
+      <div class="dfree-body mce-content-body" contenteditable="true" style="position: relative;" spellcheck="false">
+        <p><img src="https://tiny.cloud/images/medium-pic.jpg" style="display: block; margin-left: auto; margin-right: auto; width: 100%;"></p>
+        <br/>
+        <h2>The world’s first rich text editor in the cloud</h2>
+    
+        <p>
+          Have you heard about Tiny Cloud?
+          It’s the first step in our journey to help you deliver great content creation experiences, no matter your level of expertise.
+          50,000 developers already agree.
+          They get free access to our global CDN, image proxy services and auto updates to the TinyMCE editor.
+          They’re also ready for some exciting updates coming soon.
+        </p>
+    
+    
+        <p>
+          One of these enhancements is <strong>Tiny Drive</strong>: imagine file management for TinyMCE, in the cloud, made super easy.
+          Learn more at <a href='https://www.tiny.cloud/drive/'>tiny.cloud/drive/</a>, where you’ll find a working demo and an opportunity to provide feedback to the product team.
+        </p>
+    
+        <h3>An editor for every project</h3>
+    
+        <p>
+          Here are some of our customer’s most common use cases for TinyMCE:
+          <ul>
+            <li>Content Management Systems (<em>e.g. WordPress, Umbraco</em>)</li>
+            <li>Learning Management Systems (<em>e.g. Blackboard</em>)</li>
+            <li>Customer Relationship Management and marketing automation (<em>e.g. Marketo</em>)</li>
+            <li>Email marketing (<em>e.g. Constant Contact</em>)</li>
+            <li>Content creation in SaaS systems (<em>e.g. Eventbrite, Evernote, GoFundMe, Zendesk</em>)</li>
+          </ul>
+        </p>
+    
+        <p>
+          And those use cases are just the start.
+          TinyMCE is incredibly flexible, and with hundreds of APIs there’s likely a solution for your editor project.
+          If you haven’t experienced Tiny Cloud, get started today.
+          You’ll even get a free trial of our premium plugins – no credit card required!
+        </p>
+      </div>
+    </div>
+
+
+
+    <script>
+      const dfreeHeaderConfig = {
+        selector: '.dfree-header',
+        menubar: false,
+        inline: true,
+        toolbar: false,
+        plugins: [ 'quickbars' ],
+        quickbars_insert_toolbar: 'undo redo',
+        quickbars_selection_toolbar: 'italic underline',
+      };
+      
+      const dfreeBodyConfig = {
+        selector: '.dfree-body',
+        menubar: false,
+        inline: true,
+        plugins: [
+          'autolink', 'codesample', 'link', 'lists',
+          'media', 'powerpaste', 'table', 'image',
+          'quickbars', 'codesample', 'help'
+        ],
+        toolbar: false,
+        quickbars_insert_toolbar: 'quicktable image media codesample',
+        quickbars_selection_toolbar: 'bold italic underline | blocks | blockquote quicklink',
+        contextmenu: 'undo redo | inserttable | cell row column deletetable | help',
+        powerpaste_word_import: 'clean',
+        powerpaste_html_import: 'clean',
+      };
+      
+      tinymce.init(dfreeHeaderConfig);
+      tinymce.init(dfreeBodyConfig);
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- jQuery cdn-->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+  
+  <!-- iziToast required cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/css/iziToast.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/izitoast/1.4.0/js/iziToast.min.js" integrity="sha512-Zq9o+E00xhhR/7vJ49mxFNJ0KQw1E1TMWkPTxrWcnpfEFDEXgUiwJHIKit93EW/XxE31HSI5GEOW06G6BF1AtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+  <script>
+    $(document).ready(function() {
+
+
+      $('.dfree-body, #btn').on('click change keyup', function() {
+        // alert($('.dfree-body').html());  
+        // $('#description').val($('.dfree-body').html());
+        
+
+        html = $('.dfree-body').html();
+        // when the .dfree-body html is empty, then "description" set to null, otherwise set tinymce(.dfree-body) source code to that input field(#description)
+        editordata = html === '<p><br data-mce-bogus="1"></p>' ? '' : html;
+        $('#description').val(editordata);
+        
+      });
+
+
+
+      
+
+      
+
+        // form validation logic
+        $('form').submit(function(event) {
+          const description = $('#description').val().trim(); // textarea data
+          if (description.length === 0) {
+              event.preventDefault();
+              // alert('Description field is required.');
+
+              //  warning message
+              iziToast.warning({
+                  position: "topRight",
+                  timeout: 5000, icon: 'ico-warning', 
+                  title: "Description field is required",
+                  message: 'Try again'
+              });
+                  
+          }
+        });// from validation ene
+
+    });// //document.ready end
+
+  </script>
+
+   
+    
+  </body>
+</html>
