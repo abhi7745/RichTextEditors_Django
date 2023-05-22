@@ -32,3 +32,10 @@ This is a Django project that includes different RichTextEditors that you can us
 
 ## tinyMCE
 - 1.0_basic_tinyMCE_direct_validation_without_api_key
+- 1.1_basic_tinyMCE_direct_validation_with_api_key
+- 1.2_custom_basic_tinyMCE_direct_validation_with_api_key
+- 1.3_distraction_free_tinyMCE_validation_using_inputbox_with_api_key.html
+
+
+## Trix
+- 1.0_trix_direct_validation
