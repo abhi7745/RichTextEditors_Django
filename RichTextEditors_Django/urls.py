@@ -34,6 +34,7 @@ urlpatterns = [
     path('summernote/', include('summernote.urls'), name='summernote'), # summernote url
     path('quill/', include('quill.urls'), name='quill' ), # quill url
     path('bootstrap_wysihtml5/', include('bootstrap_wysihtml5.urls'), name='bootstrap_wysihtml5' ), # bootstrap_wysihtml5 url
-    path('tinyMCE/', include('tinyMCE.urls'), name='tinyMCE' ), # bootstrap_wysihtml5 url
+    path('tinyMCE/', include('tinyMCE.urls'), name='tinyMCE' ), # tinyMCE url
+    path('trix/', include('trix.urls'), name='trix' ), # trix url
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT) # for 'media' folder setting purpose

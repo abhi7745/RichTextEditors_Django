@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'quill',
     'bootstrap_wysihtml5',
     'tinyMCE',
+    'trix',
 ]
 
 MIDDLEWARE = [
