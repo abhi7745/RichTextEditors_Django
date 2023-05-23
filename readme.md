@@ -38,4 +38,4 @@ This is a Django project that includes different RichTextEditors that you can us
 
 
 ## Trix
-- 1.0_trix_direct_validation
+- 1.0_trix_validation_using_inputbox
